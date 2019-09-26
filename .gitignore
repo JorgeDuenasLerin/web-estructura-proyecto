@@ -1,0 +1,4 @@
+# fichero config
+./config/*
+./config/!*.md
+./config/!ejemplo.php
