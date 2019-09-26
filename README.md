@@ -33,3 +33,7 @@ $ bin/runserver.sh
 ```
 
 Limpiar archivos README.md de los directorios
+```
+# desde la ruta raíz
+$ bin/cleanreadme.sh
+```
