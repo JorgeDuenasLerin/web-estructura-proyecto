@@ -1,7 +1,11 @@
 <?php
 
-$ROOT = realpath(__DIR__."/..");
-require("$ROOT/config/ejemplo.php");
+require_once("../config/ejemplo.php");
+
+require_once("$ROOT/src/db.php");
+
+$listado = listadoTemas();
+
 ?>
 
 <!DOCTYPE html>
