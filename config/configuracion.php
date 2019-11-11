@@ -8,5 +8,3 @@ $config = [
   'db_user' => 'juancierva',
   'db_pass' => '1234'
 ];
-
-$ROOT = realpath(__DIR__."/..");
