@@ -19,7 +19,7 @@ Son necesarias las variables
   <body>
     <?php
         require("$ROOT/resources/templates/navegacion.php");
-        require("$ROOT/resources/templates/contenido$ruta_contenido");
+        require("$ROOT/resources/templates/contenido$fichero");
         require("$ROOT/resources/templates/pie.php");
      ?>
   </body>

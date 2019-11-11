@@ -16,7 +16,12 @@ if (preg_match('/\.(?:css|js|ico|png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"]))
     $partes = explode("?", $uri);
 
     $titulo = $config['title'];
-    $ruta_contenido = $partes[0]; // Aquí es dónde la magia ocurre
+
+    $fichero = $partes[0];
+
+    // Aquí es dónde la magia ocurre
+    // ver también resources/templates/template.php
+    $ruta_contenido = str_replace("..", "", $fichero);
 
     require_once("$ROOT/resources/templates/template.php");
 
