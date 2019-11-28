@@ -17,11 +17,28 @@ class DWESBaseDatos {
     private $sentencia = null;
     private $executed = false;
 
-    function __construct(
-        $basedatos,
+    /*
+      Patrón Singletone para poder usar la clase en proyectos más grandes
+    */
+
+    private static $instanciaUnica = null;
+
+    private function __construct() { } // Solo se puede crear desde el método obtenerInstancia
+
+    public static function obtenerInstancia() {
+        if (self::$instanciaUnica == null)
+        {
+          self::$instanciaUnica = new DWESBaseDatos();
+        }
+
+        return self::$instanciaUnica;
+    }
+
+    function inicializa(
+        $basedatos,         // Nombre debe ser especificado O el archivo si es SQLite
+        $usuario  = 'root', // Ignorado si es SQLite
+        $pass     = '1234', // Ignorado si es SQLite
         $motor    = 'mysql',
-        $usuario  = 'root', // Or file is sqlite
-        $pass     = '1234',
         $serverIp = 'localhost',
         $charset  = 'utf8mb4',
         $options  = null
@@ -77,6 +94,10 @@ class DWESBaseDatos {
 
     function obtenDatos(){
         return $this->sentencia->fetchAll();
+    }
+
+    function getLastId(){
+        return $this->conexion->lastInsertId();
     }
 
     function __destruct(){
