@@ -8,3 +8,9 @@ $config = [
   'db_engine' => 'sqlite',
   'db_file' => 'resources/test.sqlite3'
 ];
+
+spl_autoload_register(function ($name){
+  global $ROOT;
+  $class_file = "$ROOT/src/$name.php";
+  require($class_file);
+});

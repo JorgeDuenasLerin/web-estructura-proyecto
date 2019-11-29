@@ -1,3 +1,4 @@
-<a href="#">Pag1</a>
-<a href="#">Pag2</a>
-<a href="#">Pag3</a>
+<div class="">
+  <a href="pagina1.php">Pag1</a>
+  <a href="pagina2.php">Pag2</a>
+</div>

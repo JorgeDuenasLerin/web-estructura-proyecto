@@ -24,6 +24,20 @@ Estructura de un proyecto completo web
     ^- Pruebas automatizadas
 ```
 
+## Orígenes
+La estructura de este proyecto implementa las mejores prácticas para los diversos problemas que nos encontramos a la hora de estructurar código en un proyecto php.
+
+Todas las peticiones son procesadas por el script **enrutador.php**, este fichero se encarga de cargar la configuración, inicializar la base de datos en base a esa configuración y decidir qué contenido mostrar en base a la petición que se está procesando.
+
+### Ficheros estáticos y ficheros dinámicos
+Si la petición es de un fichero css, png, js, o cualquier fichero estático este se servirá tal cual.
+
+Si no lo es, se cargará un fichero con la estructura HTML general de la aplicación (ver **template.php**) en el que se incluye una navegación, un contenido (basado en la petición) y un pie. En esta página podemos incluir todos los ficheros necesarios.
+
+
+## Base de datos
+Se dejan incluidos los ficheros para integrar una base de datos orientada a objetos. Un ejemplo con alguna consulta funcionando se puede encontrar en [mini-foro-php](https://github.com/JorgeDuenasLerin/mini-foro-php).
+
 ## Ejecución
 
 Del servidor de prueba

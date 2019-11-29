@@ -19,6 +19,12 @@ if (preg_match('/\.(?:css|js|ico|png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"]))
 
     $fichero = $partes[0];
 
+
+    if($fichero == "/"){
+      header("Location: pagina1.php");
+      die();
+    }
+
     // Aquí es dónde la magia ocurre
     // ver también resources/templates/template.php
     $ruta_contenido = str_replace("..", "", $fichero);
