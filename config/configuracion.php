@@ -6,7 +6,8 @@ $config = [
   'content' => 'Estructura de proyecto web',
   'content_text' => 'Información sacada del config',
   'db_engine' => 'sqlite',
-  'db_file' => 'resources/test.sqlite3'
+  'db_file' => 'resources/test.sqlite3',
+  'ruta_defecto' => '/pagina1.php'
 ];
 
 spl_autoload_register(function ($name){

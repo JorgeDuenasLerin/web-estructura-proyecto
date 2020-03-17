@@ -21,16 +21,29 @@ if (preg_match('/\.(?:css|js|ico|png|jpg|jpeg|gif)$/', $_SERVER["REQUEST_URI"]))
 
 
     if($fichero == "/"){
-      header("Location: pagina1.php");
+      header("Location: ".$config['ruta_defecto']);
       die();
     }
+
+
 
     // Aquí es dónde la magia ocurre
     // ver también resources/templates/template.php
     $ruta_contenido = str_replace("..", "", $fichero);
-
-    require_once("$ROOT/resources/templates/template.php");
-
+    //echo "<pre>";
+    //print_r($_SERVER);
+    //echo "</pre>";
+    if(
+        // Según SO servirá en servidor real
+        (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
+        ||
+        // Verificado en el servidor de desarrollo de php
+        ($_SERVER['HTTP_SEC_FETCH_MODE'] == 'cors')
+      ) {
+        require_once("$ROOT/resources/templates/contenido$ruta_contenido");
+    } else {
+        require_once("$ROOT/resources/templates/template.php");
+    }
 }
 
 ?>
