@@ -3,6 +3,7 @@ const url = '/contenido_json.php'
 const http = new XMLHttpRequest()
 
 http.open("GET", url)
+http.setRequestHeader('X_REQUESTED_WITH','xmlhttprequest')
 http.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
         var resultado = JSON.parse(this.responseText)
