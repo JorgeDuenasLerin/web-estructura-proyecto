@@ -100,6 +100,10 @@ class DWESBaseDatos {
         return $this->conexion->lastInsertId();
     }
 
+    function getExecuted(){
+        return $this->executed;
+    }
+
     function __destruct(){
         $this->conexion = null;
     }
